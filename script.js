@@ -31,3 +31,4 @@ function isInViewport(element) {
   );
 }
 
+// create a function to let users toggle between light and dark mode

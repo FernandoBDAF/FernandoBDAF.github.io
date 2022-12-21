@@ -1,5 +1,5 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: "Open Sans", sans-serif;
     margin: 0;
     padding: 0;
   }
@@ -68,6 +68,11 @@ body {
   section p {
     font-size: 18px;
     margin: 0;
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
   }
   
   section ul {
@@ -83,6 +88,16 @@ body {
     font-size: 18px;
     margin: 0 20px 40px 0;
     width: 30%;
+  }
+  
+  #about.container {
+    display: flex;
+  }
+
+
+  img {
+    width: 400px;
+    height: auto;
   }
   
   #hobbies img {
