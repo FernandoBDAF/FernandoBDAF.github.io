@@ -1,0 +1,93 @@
+<html>
+    <h1>Fernando's Portfolio</h1>
+    <ul>
+        <li><a href="./index.html">Home</a></li>
+        <li><a href="./myprojects/myprojects.html">My Projects</a></li>
+    </ul>
+    <h2>Create Your Page</h2>
+    <ol>
+        <li>Go to GitHub Page, you can access it through the following link: <a>https://github.com/</a>.</li>
+        <li>Create your account (Sign up) or access it (Sign in) if you already created it before.</li>
+        <li>Now that you are logged in, on the up-left corner of the page click the NEW button, so you can create the repository of your page.</li>
+        <li>Fill the *Repository name* with the following pattern: your account name + .github.io - when you do that, this repository will automatically host your personal page. For example, my account name is FernandoBDAF and my personal page is <a>FernandoBDAF.github.io</a>.</li>
+        <li>Navigate to your repository and hit the "Add file" button (in the high-middle of the page) and choose Upload files. You can drag the index.html file we are going to create in the next step.</li>
+        <li>Open the folder of the project in VS Code and select file -> new file. Name it "index.html" and write the code you see in the image behind making the appropriate changes. Drag the photo you want to have on your page to the same folder and update the src tag.</li>
+        <img src="createyourpage.jpg" width="20%">
+        <li>Now you are good to go, access your page! The address will be the exact name of the repository, look mine as an example: <a>FernandoBDAF.github.io</a></li>
+    </ol>
+    <h2>Version Controle with GIT</h2>
+    <ol>
+        <li>For more security, you should generate and add an SSH key to your development 
+            enviroment and add it to your Github's account</li>
+        <ol>
+            <li><b>ls -al ~/.ssh</b>: to see if existing SSH keys are present. Lists the files 
+                in your .ssh directory, if they exist. <a href="https://docs.github.com/en/authentication/connecting-to-github-with-ssh/checking-for-existing-ssh-keys">More details here</a>.</li>
+            <li>Follow the steps <a href="https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent">here to generate and add a new SSH key to your computer</a></li>
+            <li>After that, <a href="https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account">follow the steps here to add the SSH to your GitHub account.</a>Please, note that you have to add twice for both authentication and signing.</li>
+            <li>To exibit which commits were verified: <a href="https://docs.github.com/en/authentication/managing-commit-signature-verification/displaying-verification-statuses-for-all-of-your-commits">click here</a>.</li>
+            <li>to sign your commit locally..</li>
+
+            <ol>
+                <li><b>pbcopy < ~/.ssh/id_ed25519.pub</b>: to copy your key to clipboard</li>
+                <li><b>$ git config --global user.signingkey [your_key]</b>: change your key</li>
+                <li><b>git config --global user.signingkey</b>: to check your signingkey</li>
+                <li><b>git config --local commit.gpgsign true</b>: to auto sign commits
+                    <li><a href="https://gist.github.com/troyfontaine/18c9146295168ee9ca2b30c00bd1b41e">Best way to configure GPG and sign</a></li>
+            </ol>
+            
+        </ol>
+        <li>Install git, create a local repositorie with clone..</li>
+        <li>Git add, commit and push</li>
+    </ol>
+    <h2>The use of GIT in the development process</h2>
+    <h4>What branchs we are going to use</h4>
+    <p>We are going to work in the GIT FLOW as standart. We want to have the following
+        branchs
+    </p>
+    <ul>
+        <li>Main: production</li>
+        <li>Develop: we put the features here to test before comminting to main</li>
+        <li>Feature: for each new feature we create a branch with the name
+            feature/NAME. After the work is done here, we commit to develop
+            to test before commiting to main
+        </li>
+        <li>Between Main and Release we may have:</li>
+            <ul>
+                <li>Hotfix: when we have bugs we create branchs with name
+                    hotfix/NAME. After the work is done we commit it to both
+                    main and develope (because both have to be working well)
+                </li>
+                <li>Release: this is where we test before sending to develop</li>
+        
+            </ul>
+    </ul>
+    <h4>Creatin Branchs</h4>
+    <ol>
+        <li><b>git branch</b>: show all branchs</li>
+        <li><b>git branch feature/NAME</b>:</li> create the branch
+        <li><b>git switch [branch_name]</b>: change branch</li>
+        <li><b></b>:</li>
+    </ol>
+    <p>You work with the branch, adding and commiting until you done with your
+        new feature
+    </p>
+    <h4>Commiting a new feature</h4>
+    <ol>
+        <li>Merge the feature to the branch develop</li>
+        <ol>
+            <li><b>git checkout develop</b>: Change Branch</li>
+            <li><b>git merge feature/NAME</b>: bring the changes to the develop
+            branch</li>
+            <li>If you have any conflits, you have to fix it and then <b>git 
+                add .</b> and <b>git merge --continue</b>.</li>
+            <li><b>git add .</b>: Add files</li>
+            <li><b>git push origin master</b>: Update the online version</li>
+            <li><b>git commit -m "Merge feature into develop"</b>: Commit</li>
+            
+        </ol>
+        <li>Remove the branch with this feature</li>
+        <b>git branch -d feature/NAME</b>: Delete the branch, if there are not 
+        commited work you need to use -D. To remove a remote branch, use 
+        git push origin --delete Remote_branch_name
+    </ol>
+</html>

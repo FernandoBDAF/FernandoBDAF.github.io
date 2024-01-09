@@ -1,0 +1,55 @@
+<h1>Fernando's Portfolio</h1>
+  <ul>
+      <li><a href="../../../index.html">Home</a></li>
+      <li><a href="../../myprojects.html">My Projects</a></li>
+  </ul>
+
+<h2>Working with high amount of data</h2>
+<p>In this exercise we recivied an JSON file which contains
+  more then 22 thousand entries of the salaries of workers
+  in Boston. The chalenge was to point the 5 biggest and
+  count how many people earn 100k or more. To see the
+  comple list <a href="./BostonAllData.html">click here</a>.
+</p>
+
+
+<div id="container">
+  <!-- populated by JS-->
+</div>
+<script src="./boston.js"></script>
+<script>
+  function renderTop5(boston, container) {
+    var people = boston.data;
+    var len = boston.data.length;
+    let top5 = people.sort((a,b) => b[11] - a[11]);
+    var html = "<h3>These are the top 5 salaries in Boston</h3>";
+    for (let i = 0; i < 5; i++) {
+      html += '<li class="post">' +
+        '<h2>' + top5[i][8] + '</h2>' +
+        '<h3>' + top5[i][11] + '</h3>' + "</li>"
+    }
+
+    let top100k = people.filter((arr) => arr[11] >= 100000);
+    let count = top100k.length
+    html += `<p>There are ${count} people with a salary greater then 100k</p>`;
+
+    container.innerHTML = '<ul id = "top200k">' + html + '</ul>';
+  }
+  renderTop5(boston, document.getElementById('container'));
+
+  function renderTop100k(boston, container) {
+    var people = boston.data;
+    var len = boston.data.length;
+    let top100k = people.filter((arr) => arr[11] >= 100000);
+    let count = top100k.length
+    var html = `<h1>There are ${count} people with a salary greater then 100k</h1>`;
+    for (let i = 0; i < top100k.length; i++) {
+      html += '<li class="post">' +
+        '<h2>' + top100k[i][8] + '</h2>' +
+        '<h3>' + top100k[i][11] + '</h3>' + "</li>"
+    }
+    container.innerHTML = '<ul id = "top200k">' + html + '</ul>';
+  }
+  // renderTop100k(boston, document.getElementById('container'));
+
+</script>

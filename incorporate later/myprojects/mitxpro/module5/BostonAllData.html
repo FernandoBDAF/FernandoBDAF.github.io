@@ -1,0 +1,33 @@
+>Fernando's Portfolio</h1>
+  <ul>
+      <li><a href="../../../index.html">Home</a></li>
+      <li><a href="../../myprojects.html">My Projects</a></li>
+  </ul>
+
+<h2>Working with high amount of data</h2>
+
+<p>In this exercise we recivied an JSON file which contains
+    more then 22 thousand entries of the salaries of workers
+    in Boston. The chalenge was to point the 5 biggest and
+    count how many people earn 100k or more.
+  </p>
+<a href="./BostonSalariesDB.html">back</a>
+
+<div id="container">
+  <!-- populated by JS-->
+</div>
+<script src="./boston.js"></script>
+<script>
+  function renderBoston(boston, container) {
+    var people = boston.data;
+    var len = boston.data.length;
+    var html = `<h3>This is the list with ${len} people`;
+    for (let i = 0; i < len; i++) {
+      html += '<li class="post">' +
+        '<h2>' + people[i][8] + '</h2>' +
+        '<h3>' + people[i][11] + '</h3>'
+    }
+    container.innerHTML = '<ul id = "boston">' + html + '</ul>';
+  }
+  renderBoston(boston, document.getElementById('container'));
+</script>

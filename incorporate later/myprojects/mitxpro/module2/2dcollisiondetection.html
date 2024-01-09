@@ -1,0 +1,133 @@
+<ul>
+    <li><a href="../../myprojects.html">My Projects</a></li>
+    <li><a href="./1d&2dballsexplained.html">Review: How I worked with the balls projects</a></li>
+    <li><a href="./1dmovingball.html">1d: Moving Ball</a></li>
+    <li><a href="./1drandomspeeds.html">1d: Random Speeds</a></li>
+    <li><a href="./1dchangingcolor.html">1d: Changing Color</a></li>
+    <li><a href="./1dfinalchallenge.html">1d: Final Challenge</a></li>
+    <li><a href="./2dmovingball.html">2d: Moving Ball</a></li>
+    <li><a href="./2dcollisiondetection.html">2d: Detecting Collisions</a></li>
+</ul>
+<div></div>
+
+<script>
+//
+// Creating balls
+var leftMax = 1000
+var randomColor = function() {
+    let r = Math.floor(255*(Math.random()));
+    let g = Math.floor(255*(Math.random()));
+    let b = Math.floor(255*(Math.random()));        
+    let color = 'rgb(' + r + ', ' + g + ', ' + b + ')';
+    return color
+}
+
+var createBalls = function(amount, left, size, color){
+    let i = 0
+    let array = []
+    let proprieties = []
+    while (i < amount){
+        let j = 1 + Math.floor(15*(Math.random()))
+
+        var div = document.createElement('div');
+        div.id = name;
+        div.style.zIndex = '1';
+        div.style.position = 'absolute';    
+        div.style.left = (leftMax/j) + left + 'px';    
+        div.style.top = i*2*size + 'px';    
+        div.style.width = size + 'px';    
+        div.style.height = size + 'px';    
+        div.style.borderRadius = '50%';
+        div.style.background = randomColor();
+        document.getElementsByTagName('body')[0].appendChild(div);
+        array[i] = div
+        
+        proprieties[i] = {
+            size: size,
+            velocityX: 15,
+            velocityY: 15,
+            positionX: (leftMax/j) + left,
+            positionY: i*2*size,
+            goingLeft: true,
+            goingUp: true,
+            speed: false,
+            startPointX: (leftMax/j) + left,
+            startPointy: i*2*size
+        }
+        i++
+    };
+    return [array, proprieties];
+}
+
+var array = createBalls(8, 500, 40, "green")
+var balls = array[0]
+var proprieties = array[1]
+var Xmin = proprieties[0].startPointX
+var Xmax = Xmin + leftMax
+var Ymin = 0
+var Ymax = Ymin + leftMax
+
+// Animations
+// ----------------
+
+
+var checkCollisions = function() {
+    let i = 0;
+    while (i < proprieties.length - 1) {
+        let j = i + 1
+        while (j < proprieties.length) {
+            let A = proprieties[i]
+            let B = proprieties[j]
+            let radius = (Math.sqrt(2*(A.size**2)))/2
+            let distance = Math.sqrt((A.positionX-B.positionX)**2 + (A.positionY-B.positionY)**2)
+            if (distance <= radius*2) {
+                A.goingLeft = !A.goingLeft
+                B.goingUp = !B.goingUp
+            }
+            j++
+        }
+        i++
+    }
+}
+
+var zigzag = function() {
+    let i = 0
+    while (i < balls.length) {
+        if (proprieties[i].positionX < Xmin + proprieties[i].velocityX) {
+            proprieties[i].goingLeft = false      
+        }
+        else if (proprieties[i].positionX >= Xmax - + proprieties[i].velocityX) {
+            proprieties[i].goingLeft = true
+        }
+        if (proprieties[i].positionY < Ymin + proprieties[i].velocityY) {
+            proprieties[i].goingUp = false
+        }
+        else if (proprieties[i].positionY >= Ymax - proprieties[i].velocityY) {
+            proprieties[i].goingUp = true
+        }
+
+
+
+        if (proprieties[i].goingLeft === true) {
+            proprieties[i].positionX = proprieties[i].positionX - proprieties[i].velocityX
+        }
+        else {
+            proprieties[i].positionX = proprieties[i].positionX + proprieties[i].velocityX
+        }
+        if (proprieties[i].goingUp === true) {
+            proprieties[i].positionY = proprieties[i].positionY - proprieties[i].velocityY
+        }
+        else {
+            proprieties[i].positionY = proprieties[i].positionY + proprieties[i].velocityY
+        }
+        
+        balls[i].style.left = proprieties[i].positionX + "px"
+        balls[i].style.top = proprieties[i].positionY + "px"
+        checkCollisions(balls)
+        i++
+    }
+}
+
+setInterval(zigzag, 100)
+
+</script>

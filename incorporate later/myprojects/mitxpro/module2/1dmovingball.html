@@ -1,0 +1,50 @@
+<ul>
+  <li><a href="../../myprojects.html">My Projects</a></li>
+  <li><a href="./1d&2dballsexplained.html">Review: How I worked with the balls projects</a></li>
+  <li><a href="./1dmovingball.html">1d: Moving Ball</a></li>
+  <li><a href="./1drandomspeeds.html">1d: Random Speeds</a></li>
+  <li><a href="./1dchangingcolor.html">1d: Changing Color</a></li>
+  <li><a href="./1dfinalchallenge.html">1d: Final Challenge</a></li>
+  <li><a href="./2dmovingball.html">2d: Moving Ball</a></li>
+  <li><a href="./2dcollisiondetection.html">2d: Detecting Collisions</a></li>
+</ul>
+
+<div id="ball" style="
+  z-index:5;
+  position:absolute;
+  left:0px;
+  top:0px;
+  width:200px;
+  height:200px;
+  border-radius:50%;
+  background:green"></div>
+
+<script>
+
+var velocity = 1;
+var position = 0;
+var ball = document.getElementById('ball');
+var goingLeft = true;
+
+// YOUR CODE 
+// ----------------
+var zigzag = function () {
+  if (position === 0) {
+    goingLeft = false
+  }
+  else if (position === 25) {
+  goingLeft = true
+  }
+
+  if (goingLeft == true) {
+    position = position - velocity
+  }
+  else{
+    position = position + velocity
+  }
+  ball.style.left = position + "%"
+}
+
+setInterval(zigzag, 20)
+
+</script>

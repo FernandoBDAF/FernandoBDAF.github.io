@@ -1,0 +1,90 @@
+<div></div>
+<ul>
+    <li><a href="../../myprojects.html">My Projects</a></li>
+    <li><a href="./1d&2dballsexplained.html">Review: How I worked with the balls projects</a></li>
+    <li><a href="./1dmovingball.html">1d: Moving Ball</a></li>
+    <li><a href="./1drandomspeeds.html">1d: Random Speeds</a></li>
+    <li><a href="./1dchangingcolor.html">1d: Changing Color</a></li>
+    <li><a href="./1dfinalchallenge.html">1d: Final Challenge</a></li>
+    <li><a href="./2dmovingball.html">2d: Moving Ball</a></li>
+    <li><a href="./2dcollisiondetection.html">2d: Detecting Collisions</a></li>
+</ul>
+<script>
+//
+// Creating balls
+var create = function(left, top, size, color){
+    // set div attributes
+    var div = document.createElement('div');
+    div.id = name;
+    div.style.zIndex = '1';
+    div.style.position = 'absolute';    
+    div.style.left = left + 'px';    
+    div.style.top = top + 'px';    
+    div.style.width = size + 'px';    
+    div.style.height = size + 'px';    
+    div.style.borderRadius = '50%';
+    div.style.background = color;    
+
+    // Then append the whole thing onto the body
+    document.getElementsByTagName('body')[0].appendChild(div);
+
+    return div;        
+};
+
+var chooseBalls = function(amount, size, color){
+    let i = 0
+    let array = []
+    let proprieties = []
+    while (i < amount){
+        array[i] = create(0, (i)*1.5*size, size, color)
+        proprieties[i] = {
+            velocity: 10,
+            position:0,
+            goingLeft: true,
+            speed: false
+        }
+        i++
+    }
+    return [array, proprieties]
+}
+
+var array = chooseBalls(6, 100, "green")
+var balls = array[0]
+var proprieties = array[1]
+
+// Animations
+// ----------------
+var randomColor = function() {
+    let r = Math.floor(255*(Math.random()));
+    let g = Math.floor(255*(Math.random()));
+    let b = Math.floor(255*(Math.random()));        
+    let color = 'rgb(' + r + ', ' + g + ', ' + b + ')';
+    return color
+}
+
+var zigzag = function(){
+    let i = 0
+    while (i < balls.length){
+        if (proprieties[i].position < 0) {
+            proprieties[i].goingLeft = false
+            balls[i].style.background = randomColor()
+        }
+        else if (proprieties[i].position >= 1000) {
+            proprieties[i].goingLeft = true
+            balls[i].style.background = randomColor()
+        }
+        if (proprieties[i].goingLeft === true) {
+            proprieties[i].position = proprieties[i].position - proprieties[i].velocity
+        }
+        else {
+            proprieties[i].position = proprieties[i].position + proprieties[i].velocity
+        }
+        balls[i].style.left = proprieties[i].position + "px"
+        i++
+    }
+
+}
+
+setInterval(zigzag, 20)
+
+</script>

@@ -1,0 +1,117 @@
+<ul>
+    <li><a href="../../myprojects.html">My Projects</a></li>
+    <li><a href="./1d&2dballsexplained.html">Review: How I worked with the balls projects</a></li>
+    <li><a href="./1dmovingball.html">1d: Moving Ball</a></li>
+    <li><a href="./1drandomspeeds.html">1d: Random Speeds</a></li>
+    <li><a href="./1dchangingcolor.html">1d: Changing Color</a></li>
+    <li><a href="./1dfinalchallenge.html">1d: Final Challenge</a></li>
+    <li><a href="./2dmovingball.html">2d: Moving Ball</a></li>
+    <li><a href="./2dcollisiondetection.html">2d: Detecting Collisions</a></li>
+</ul>
+<div></div>
+
+<script>
+//
+// Creating balls
+var leftMax = window.innerWidth
+var topMax = window.innerHeight
+var createBalls = function(amount, left, size, color){
+    let i = 0
+    let array = []
+    let proprieties = []
+    while (i < amount){
+        let j = 1 + Math.floor(15*(Math.random()))
+
+        var div = document.createElement('div');
+        div.id = name;
+        div.style.zIndex = '1';
+        div.style.position = 'absolute';    
+        div.style.left = (leftMax/j) + left + 'px';    
+        div.style.top = (j)*1.5*size + 'px';    
+        div.style.width = size + 'px';    
+        div.style.height = size + 'px';    
+        div.style.borderRadius = '50%';
+        div.style.background = color;
+        document.getElementsByTagName('body')[0].appendChild(div);
+        array[i] = div
+        
+        proprieties[i] = {
+            size: size,
+            velocityX: 5 + Math.floor(15*(Math.random())),
+            velocityY: 5 + Math.floor(15*(Math.random())),
+            positionX: (leftMax/j) + left,
+            positionY: (j)*1.5*size,
+            goingLeft: true,
+            goingUp: true,
+            speed: false,
+            startPointX: (leftMax/j) + left,
+            startPointy: (j)*1.5*size
+        }
+        i++
+    };
+    return [array, proprieties];
+}
+
+var array = createBalls(60, 0, 40, "green")
+var balls = array[0]
+var proprieties = array[1]
+
+// Animations
+// ----------------
+var randomColor = function() {
+    let r = Math.floor(255*(Math.random()));
+    let g = Math.floor(255*(Math.random()));
+    let b = Math.floor(255*(Math.random()));        
+    let color = 'rgb(' + r + ', ' + g + ', ' + b + ')';
+    return color
+}
+
+var zigzag = function() {
+    let i = 0
+    while (i < balls.length) {
+        var Xmin = 0
+        var Xmax = window.innerWidth
+        var Ymin = 0
+        var Ymax = window.innerHeight
+        if (proprieties[i].positionX < Xmin + proprieties[i].velocityX) {
+            proprieties[i].goingLeft = false
+            balls[i].style.background = "black"       
+        }
+        else if (proprieties[i].positionX >= Xmax - proprieties[i].velocityX) {
+            proprieties[i].goingLeft = true
+            proprieties[i].velocityX = 5 + Math.floor(15*(Math.random()))
+            proprieties[i].velocityY = 5 + Math.floor(15*(Math.random()))
+            balls[i].style.background = "black"
+        }
+        if (proprieties[i].positionY < Ymin + proprieties[i].velocityY) {
+            proprieties[i].goingUp = false
+        }
+        else if (proprieties[i].positionY >= Ymax - proprieties[i].velocityY) {
+            proprieties[i].goingUp = true
+            balls[i].style.background = "black"
+        }
+
+
+
+        if (proprieties[i].goingLeft === true) {
+            proprieties[i].positionX = proprieties[i].positionX - proprieties[i].velocityX
+        }
+        else {
+            proprieties[i].positionX = proprieties[i].positionX + proprieties[i].velocityX
+        }
+        if (proprieties[i].goingUp === true) {
+            proprieties[i].positionY = proprieties[i].positionY - proprieties[i].velocityY
+        }
+        else {
+            proprieties[i].positionY = proprieties[i].positionY + proprieties[i].velocityY
+            balls[i].style.background = randomColor()
+        }
+        balls[i].style.left = proprieties[i].positionX + "px"
+        balls[i].style.top = proprieties[i].positionY + "px"
+        i++
+    }
+}
+
+setInterval(zigzag, 25)
+
+</script>

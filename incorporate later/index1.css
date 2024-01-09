@@ -1,0 +1,201 @@
+body {
+    font-family: "Open Sans", sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  header {
+    background-color: #333;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+  }
+  
+  header .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  header nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  header nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    margin-right: 20px;
+  }
+  
+  header h1 {
+    margin: 20px 0;
+    font-size: 32px;
+  }
+  
+  header p {
+    font-size: 18px;
+    margin: 0;
+  }
+  
+  main {
+    background-color: #eee;
+  }
+  
+  section {
+    padding: 80px 0;
+  }
+  
+  section .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  section h2 {
+    text-align: center;
+    font-size: 32px;
+    margin: 0 0 40px 0;
+  }
+  
+  section h3 {
+    font-size: 24px;
+    margin: 20px 0;
+  }
+  
+  section p {
+    font-size: 18px;
+    margin: 0;
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+  }
+  
+  section ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  section li {
+    font-size: 18px;
+    margin: 0 20px 40px 0;
+    width: 30%;
+  }
+  
+  #about.container {
+    display: flex;
+  }
+
+
+  img {
+    width: 400px;
+    height: auto;
+  }
+  
+  #hobbies img {
+    width: 400px;
+    height: auto;
+  }
+
+  #hobbies video {
+    width: 400px;
+    height: auto;
+  }
+
+  section form label {
+    display: block;
+    font-size: 18px;
+    margin: 20px 0;
+  }
+  
+  section form input,
+  section form textarea {
+    width: 100%;
+    font-size: 18px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+  }
+  
+  section form input[type="submit"] {
+    background-color: #333;
+    color: white;
+    font-size: 18px;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  footer p {
+    margin: 0;
+  }
+
+  img,
+video {
+  opacity: 0;
+  transition: opacity 1s;
+}
+
+.fade-in {
+  opacity: 1;
+}
+
+#functions {
+    padding: 80px 0;
+  }
+  
+  #functions .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  #functions h2 {
+    text-align: center;
+    font-size: 32px;
+    margin: 0 0 40px 0;
+  }
+  
+  #functions #function-display {
+    font-size: 18px;
+    margin: 20px 0;
+  }
+  
+  #functions #function-form {
+    display: flex;
+    align-items: center;
+  }
+  
+  #functions #function-form input[type="text"] {
+    font-size: 18px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    flex: 1;
+  }
+  
+  #functions #function-form input[type="submit"] {
+    font-size: 18px;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    background-color: #333;
+    color: white;
+    width: 10%;
+  }
+  
