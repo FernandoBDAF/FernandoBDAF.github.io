@@ -18,3 +18,18 @@
     padding: 10px;
     border: 1px solid #ddd;
   }
+
+.my-contacts {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between; /* Adjust as needed */
+    align-items: center; /* Adjust as needed */
+  }
+
+  /* Add styling to the flex items (optional) */
+.contact {
+    width: 50%;
+    flex-direction: row;
+    padding: 10px;
+    border: 1px solid #ddd;
+  }
