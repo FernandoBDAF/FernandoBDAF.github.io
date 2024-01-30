@@ -1,0 +1,133 @@
+body {
+  background: #333;
+  background-attachment: fixed;
+  background-size: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 10px solid rgba(255, 255, 255, 0.5);
+  margin: 10px;
+}
+
+nav {
+    background-color: purple;
+}
+
+article {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    top: 10%;
+    height: 60%;
+    @media screen and (max-width: 960px) {
+        flex-direction: column;
+        align-content: center;
+        align-items: center;
+        gap: 42px;
+        height: auto;
+        /* margin: 24px; */
+      }
+}
+
+.video-background {
+  text-align: center;
+  width: auto;
+  height: auto;
+  position: relative;
+  height: 100%;
+  padding: 2% 5%;
+    iframe {
+        @media screen and (max-width: 960px) {
+            margin-top: 24px;
+            width: 390px;
+            height: auto;
+        }
+        @media screen and (max-width: 500px) {
+            width: 240px;
+            height: auto;
+        }
+    }
+}
+
+.bio {
+    padding: 0 5% 0 0;
+    height: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    p {
+        font-size: 1.5em;
+        letter-spacing: 1px;
+        color: #fff;
+        font-family: Oswald, sans-serif;
+        text-align: center;
+        font-weight: 200;
+        font-style: normal;
+        @media screen and (max-width: 1240px) {
+            font-size: 1.0em;
+        }
+        @media screen and (max-width: 500px) {
+            font-size: 12px;
+        }
+        .bio-highlights {
+            color: burlywood;
+        }
+      }
+}
+
+
+.title {
+    position: absolute;
+    top: 80%;
+    width: 100%;
+    display: flex;
+    padding-left: 10%;
+    h1 {
+    font-size: 36px;
+    letter-spacing: 3px;
+    color: #fff;
+    font-family: Oswald, sans-serif;
+    text-align: center;
+    @media screen and (max-width: 960px) {
+        margin-top: 36px;
+        width: auto;
+        top: 66%;
+    }
+    }
+
+    h1 span {
+    font-family: sans-serif;
+    letter-spacing: 0;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 24px;
+    }
+
+    h1 span a {
+    color: #fff;
+    }
+
+    .my-contacts {
+        font-size: 16px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 12px;
+        span {
+            color: gold;
+            display: flex;
+            flex-direction: row;
+            /* gap: 12px; */
+            margin: 0 0 0 0;
+            /* justify-content: space-between;
+            align-items: center; */
+        }
+    }
+}
+
+
