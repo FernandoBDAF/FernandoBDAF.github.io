@@ -19,12 +19,12 @@
 	const title = "Full Stack Engineer";
 	setTimeout(() => {
 		menuText.innerHTML = "";
-		typeText(0, msg, true, 100, menuText)
+		typeText(0, msg, true, 25, menuText)
 	}, 1000);
 	setTimeout(() => {
 		menuText.innerHTML = "";
-		typeText(0, title, false, 100, menuText)
-	}, 20000);
+		typeText(0, title, false, 50, menuText)
+	}, 15000);
   }
 
   function typeText(i, msg, flashing, time, element) {
@@ -36,10 +36,10 @@
 		}, time);
 	} else {
 		if (flashing) {
-			let effect = setInterval(flash, 1000)
+			let effect = setInterval(flash, 500)
 			setTimeout(() => {
 				clearInterval(effect);
-			}, 2000);
+			}, 1000);
 		}
 	}
 }
@@ -51,7 +51,7 @@ function flash() {
 	setTimeout( () => {
 		e.style.transform = "scale(1)";
 		e.style.paddingLeft = "0px";
-	}, 500);
+	}, 250);
 }
 
 changeNavText();
