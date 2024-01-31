@@ -3,6 +3,10 @@
 //     content.style.display = content.style.display === 'none' ? 'flex' : "none";
 //   }
 
+let typeMsg = null;
+let typeTitle = null;
+let startchangeNavText = null;
+let typeNav = null;
 
 
   function showDescription(element) {
@@ -17,21 +21,24 @@
 	menuText = document.getElementById("menuText");
 	const msg = "Hover your mouse over each project to see its description!";
 	const title = "Full Stack Engineer";
-	setTimeout(() => {
+	typeMsg = setTimeout(() => {
 		menuText.innerHTML = "";
 		typeText(0, msg, true, 25, menuText)
 	}, 1000);
-	setTimeout(() => {
+	typeTitle = setTimeout(() => {
 		menuText.innerHTML = "";
 		typeText(0, title, false, 50, menuText)
 	}, 15000);
   }
 
   function typeText(i, msg, flashing, time, element) {
+	if (document.visibilityState !== 'visible') {
+		return;
+	}
 	if (i < msg.length) {
 		element.innerHTML += msg.charAt(i);
 		i++;
-		setTimeout(() => {
+		typeNav = setTimeout(() => {
 			typeText(i, msg, flashing, time, element)
 		}, time);
 	} else {
@@ -54,5 +61,22 @@ function flash() {
 	}, 250);
 }
 
-changeNavText();
-setInterval(changeNavText, 90000);
+document.addEventListener('visibilitychange', function () {
+	if (document.visibilityState === 'visible') {
+		console.log("visible");
+		document.getElementById("menuText").innerHTML = "Full Stack Engineer";
+		changeNavText();
+		startchangeNavText = setInterval(changeNavText, 90000);
+	} else {
+		console.log("hidden");
+		clearTimeout(typeMsg);
+		clearTimeout(typeTitle);
+		clearInterval(startchangeNavText);
+		clearTimeout(typeNav);
+		document.getElementById("menuText").innerHTML = "Full Stack Engineer";
+		
+	}
+  });
+
+  changeNavText();
+  startchangeNavText = setInterval(changeNavText, 90000);
