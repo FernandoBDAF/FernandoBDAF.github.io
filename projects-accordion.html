@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects Accordion</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f4f4f4;
+    }
+
+    .accordion {
+      width: 400px;
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .section {
+      cursor: pointer;
+      padding: 12px;
+      background-color: #f0f0f0;
+      border-bottom: 1px solid #ddd;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    .content {
+      padding: 12px;
+      display: none;
+    }
+
+    .project-card {
+      margin: 12px 0;
+      padding: 12px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      background-color: #fff;
+    }
+
+    .project-card img {
+      max-width: 100%;
+      border-radius: 4px;
+      margin-bottom: 8px;
+    }
+
+    .project-card button {
+      display: block;
+      margin-top: 8px;
+      padding: 8px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .project-card button + button {
+      margin-left: 8px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="accordion">
+  <div class="section" onclick="toggleSection('mitxpro')">MITxPro Projects</div>
+  <div class="content" id="mitxpro-content">
+    <div class="project-card">
+      <img src="mitxpro_project1.jpg" alt="MITxPro Project 1">
+      <p>Project 1 description goes here.</p>
+      <button onclick="openLink('project1')">Learn More</button>
+      <button onclick="openLink('demo1')">Demo</button>
+    </div>
+    <!-- Add more MITxPro projects as needed -->
+  </div>
+
+  <div class="section" onclick="toggleSection('personal')">Personal Projects</div>
+  <div class="content" id="personal-content">
+    <div class="project-card">
+      <img src="personal_project1.jpg" alt="Personal Project 1">
+      <p>Project 1 description goes here.</p>
+      <button onclick="openLink('project1')">Learn More</button>
+      <button onclick="openLink('demo1')">Demo</button>
+    </div>
+    <!-- Add more Personal projects as needed -->
+  </div>
+</div>
+
+<script src="scripts.js"></script>
+
+</body>
+</html>
