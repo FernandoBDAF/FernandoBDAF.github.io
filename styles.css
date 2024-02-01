@@ -1,5 +1,5 @@
 body {
-  background: #333;
+  background: #333333;
   background-attachment: fixed;
   background-size: cover;
   position: absolute;
@@ -11,11 +11,24 @@ body {
   margin: 10px;
 }
 
+
+
 nav {
-    background-color: purple;
+    background-color: #EE5622;
+    a {
+        color: #333333;
+    }
     #menuText {
         transition: transform 0.3s ease-in-out;
     }
+}
+
+.navbar-brand {
+    color: #333333
+}
+
+.nav-link {
+    color: #333333;
 }
 
 article {
@@ -77,13 +90,13 @@ article {
             font-size: 12px;
         }
         .bio-highlights {
-            color: burlywood;
+            color: #E0CA3C;
         }
       }
 }
 
 .accordion {
-    background-color: white;
+    background-color: #EAE6E5;
     position: absolute;
     display: flex;
     flex-direction: column;
@@ -119,33 +132,44 @@ article {
             p {
                 display: none;
             }
+            a {
+                background-color: #EAE6E5;
+                color: #333333;
+                border-color: #7180B9;
+            }
+            img {
+                /* filter: blur(1px); */
+                /* filter: saturate(50%); */
+            }
         }
     }
 }
 
 .paragraphs {
-    position: absolute;
-    top: 8%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    top: 5%;
     width: 45%;
-    height: 72%;
     p {
-            background-color: hsl(0 0% 94%);
+            background-color: #F0F4EF;
             color: hsl(0 0% 40%);
             line-height: 1.75;
             border: 0;
             padding: 24px;
             border-radius: 16px;
             resize: none;
-            inline-size: min(400px, 90vw);
+            inline-size: 575px;
             font-size: 1.2rem;
+            color: #333333;
         }
 }
 
 #tooltip {
     position: absolute;
     display: none;
-    background-color: gray;
-    color: gold;
+    background-color: #f0f4ef;
+    color: #333333;
     font-size: 18px;
     text-decoration: underline;
     padding: 6px 16px;
@@ -195,7 +219,7 @@ article {
                 justify-content: center;
                 align-items: center;
                 span {
-                    color: gold;
+                    color: #E0CA3C;
                     display: flex;
                     flex-direction: row;
                     margin: 0 20px

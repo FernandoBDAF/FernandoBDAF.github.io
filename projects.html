@@ -20,7 +20,7 @@
     <nav class="navbar navbar-expand-md navbar-dark">
       <div class="container-xxl">
         <a id="menuTextLink" href="#intro" class="navbar-brand">
-          <span id="menuText" class="fw-bold text-white"
+          <span id="menuText" class="fw-bold"
             >Full Stack Engineer</span
           >
         </a>
@@ -42,7 +42,7 @@
           class="collapse navbar-collapse justify-content-end align-center"
           id="main-nav"
         >
-          <ul class="navbar-nav">
+          <ul class="navbar-nav fw-bold">
             <li class="nav-item">
               <a class="nav-link" href="./index.html">Home</a>
             </li>
@@ -66,8 +66,8 @@
 
           <div class="content" id="mitxpro-content">
             <div
-              onmouseover="showDescription(pacmen)"
-              onmouseleave="hideDescription(pacmen)"
+              onmouseover="showDescription(event, pacmen)"
+              onmouseleave="hideDescription(event, pacmen)"
               class="project-card"
             >
               <h4>Pac-Man Project</h4>
@@ -93,8 +93,8 @@
             </div>
 
             <div
-              onmouseover="showDescription(eye)"
-              onmouseleave="hideDescription(eye)"
+              onmouseover="showDescription(event, eye)"
+              onmouseleave="hideDescription(event, eye)"
               class="project-card"
             >
               <h4>Eye Project</h4>
@@ -128,8 +128,8 @@
             </div>
 
             <div
-              onmouseover="showDescription(bus)"
-              onmouseleave="hideDescription(bus)"
+              onmouseover="showDescription(event, bus)"
+              onmouseleave="hideDescription(event, bus)"
               class="project-card"
             >
               <h4>Bus Tracker</h4>
@@ -171,8 +171,8 @@
 
           <div class="content" id="personal-content">
             <div
-              onmouseover="showDescription(csharp)"
-              onmouseleave="hideDescription(csharp)"
+              onmouseover="showDescription(event, csharp)"
+              onmouseleave="hideDescription(event, csharp)"
               class="project-card"
             >
               <h4>C# Project</h4>
@@ -200,8 +200,8 @@
             </div>
 
             <div
-              onmouseover="showDescription(suaQuadra)"
-              onmouseleave="hideDescription(suaQuadra)"
+              onmouseover="showDescription(event, suaQuadra)"
+              onmouseleave="hideDescription(event, suaQuadra)"
               class="project-card"
             >
               <h4>SuaQuadra</h4>

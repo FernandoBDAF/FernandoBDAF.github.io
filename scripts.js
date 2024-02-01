@@ -33,12 +33,20 @@ function hideTooltip() {
   tooltip.style.display = "none";
 }
 
-function showDescription(element) {
+function showDescription(event, element) {
   element.style.display = "";
+  const starterElement = event.target;
+  if (starterElement.tagName === 'DIV') {
+  	starterElement.style.border = "2px solid #7180B9";
+	}
 }
 
-function hideDescription(element) {
+function hideDescription(event, element) {
   element.style.display = "none";
+  const starterElement = event.target;
+  if (starterElement.tagName === 'DIV') {
+	starterElement.style.border = "";
+  }
 }
 
 function changeNavText() {
@@ -52,7 +60,7 @@ function changeNavText() {
   typeTitle = setTimeout(() => {
     menuText.innerHTML = "";
     typeText(0, title, false, 50, menuText);
-  }, 15000);
+  }, 7000);
 }
 
 function typeText(i, msg, flashing, time, element) {
