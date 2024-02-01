@@ -34,8 +34,9 @@ function hideTooltip() {
 }
 
 function showDescription(event, element) {
-	if (window.innerWidth > "1240px") {
-		element.style.display = "";
+  // console.log("hover")
+	if (window.innerWidth > 1240) {
+    element.style.display = "";
 		const starterElement = event.target;
 		if (starterElement.tagName === 'DIV') {
 			starterElement.style.border = "2px solid #7180B9";
@@ -50,7 +51,7 @@ function showDescription(event, element) {
 }
 
 function hideDescription(event, element) {
-	if (window.innerWidth > "1240px") {
+	if (window.innerWidth > 1240) {
 		element.style.display = "none";
 		const starterElement = event.target;
 		if (starterElement.tagName === 'DIV') {

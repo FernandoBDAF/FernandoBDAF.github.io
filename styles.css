@@ -184,11 +184,15 @@ article {
 }
 
 .paragraphs {
-    display: none;
     position: relative;
     justify-content: center;
     top: 5%;
     width: 45%;
+    @media screen and (max-width: 1240px) {
+        display: none;
+      }
+        
+    }
     p {
             background-color: #F0F4EF;
             color: hsl(0 0% 40%);
