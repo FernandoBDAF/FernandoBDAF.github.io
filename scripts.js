@@ -34,19 +34,34 @@ function hideTooltip() {
 }
 
 function showDescription(event, element) {
-  element.style.display = "";
-  const starterElement = event.target;
-  if (starterElement.tagName === 'DIV') {
-  	starterElement.style.border = "2px solid #7180B9";
-	}
+	if (window.innerWidth > "1240px") {
+		element.style.display = "";
+		const starterElement = event.target;
+		if (starterElement.tagName === 'DIV') {
+			starterElement.style.border = "2px solid #7180B9";
+		}
+	} 
+	// else {
+	// 	let smallDiv = document.getElementsByClassName("smallContent")[0];
+	// 	element.style.display = "";
+	// 	smallDiv.appendChild(element);
+	// 	console.log(smallDiv);
+	// }
 }
 
 function hideDescription(event, element) {
-  element.style.display = "none";
-  const starterElement = event.target;
-  if (starterElement.tagName === 'DIV') {
-	starterElement.style.border = "";
-  }
+	if (window.innerWidth > "1240px") {
+		element.style.display = "none";
+		const starterElement = event.target;
+		if (starterElement.tagName === 'DIV') {
+			starterElement.style.border = "";
+		}
+	} 
+	// else {
+	// 	let smallDiv = document.getElementsByClassName("smallContent")[0];
+	// 	console.log(smallDiv.firstChild)
+	// 	smallDiv.removeChild(smallDiv.firstChild);
+	// }
 }
 
 function changeNavText() {
@@ -116,6 +131,9 @@ function checkWhichPage (pageName) {
 }
 
 function onStartProjects() {
+	if (window.innerWidth <= 1240) {
+		return;
+	}
 	if (checkWhichPage('projects.html')) {
 		changeNavText();
 		startchangeNavText = setInterval(changeNavText, 90000);
