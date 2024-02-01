@@ -82,6 +82,7 @@ article {
     flex-direction: column;
     justify-content: end;
     p {
+        background-color: #333333;
         font-size: 1.5em;
         letter-spacing: 1px;
         color: #fff;
