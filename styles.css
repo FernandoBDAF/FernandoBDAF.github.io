@@ -250,7 +250,7 @@ article {
     top: 80%;
     width: 50%;
     display: flex;
-    padding-left: 10%;
+    padding-left: 5%;
     .titleElements {
         display: flex;
         flex-direction: column;
@@ -261,12 +261,6 @@ article {
             color: #fff;
             font-family: Oswald, sans-serif;
             text-align: center;
-            @media screen and (max-width: 960px) {
-                margin-top: 36px;
-                width: auto;
-                top: 66%;
-            }
-            
             }
         
             h1 span {
@@ -291,14 +285,19 @@ article {
                     display: flex;
                     flex-direction: row;
                     margin: 0 20px
-                    
                 }
                 
             }
     }
+    img {
+        @media screen and (max-width: 960px) {
+            display: none;     
+        }
+    }
         @media screen and (max-width: 1240px) {
             position: absolute;
             top: 70%;
+            left: 10%
         }
     
 }
