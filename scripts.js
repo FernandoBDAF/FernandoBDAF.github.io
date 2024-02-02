@@ -32,37 +32,30 @@ function hideTooltip() {
   const tooltip = document.getElementById("tooltip");
   tooltip.style.display = "none";
 }
-
+let teste = null
 function showDescription(event, element) {
-  // console.log("hover")
 	if (window.innerWidth > 1240) {
+    let prgs = document.getElementsByClassName("paragraphs")[0];
+    prgs.style.display = "";
     element.style.display = "";
 		const starterElement = event.target;
-		if (starterElement.tagName === 'DIV') {
+    teste = starterElement;
+		if (starterElement.classList.contains("project-card")) {
 			starterElement.style.border = "2px solid #7180B9";
 		}
-	} 
-	// else {
-	// 	let smallDiv = document.getElementsByClassName("smallContent")[0];
-	// 	element.style.display = "";
-	// 	smallDiv.appendChild(element);
-	// 	console.log(smallDiv);
-	// }
+	}
 }
 
 function hideDescription(event, element) {
 	if (window.innerWidth > 1240) {
+    let prgs = document.getElementsByClassName("paragraphs")[0];
+    prgs.style.display = "none";
 		element.style.display = "none";
 		const starterElement = event.target;
 		if (starterElement.tagName === 'DIV') {
 			starterElement.style.border = "";
 		}
-	} 
-	// else {
-	// 	let smallDiv = document.getElementsByClassName("smallContent")[0];
-	// 	console.log(smallDiv.firstChild)
-	// 	smallDiv.removeChild(smallDiv.firstChild);
-	// }
+	}
 }
 
 function changeNavText() {
@@ -132,6 +125,8 @@ function checkWhichPage (pageName) {
 }
 
 function onStartProjects() {
+  let prgs = document.getElementsByClassName("paragraphs")[0];
+  prgs.style.display = "none";
 	if (window.innerWidth <= 1240) {
 		return;
 	}
