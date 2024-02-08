@@ -114,7 +114,6 @@ article {
 
 .accordion {
     background-color: #EAE6E5;
-    z-index: -5;
     position: absolute;
     display: flex;
     flex-direction: column;
