@@ -235,7 +235,7 @@ article {
     border-radius: 8px;
     background-image: linear-gradient(
       var(--rotate)
-      , #5ddcff, #3c67e3 43%, #4e00c2);
+      , #EAE6E5, #009FFD 43%, #E0CA3C);
       position: absolute;
       z-index: -1;
       top: -1%;
