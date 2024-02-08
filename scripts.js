@@ -136,4 +136,21 @@ function onStartProjects() {
 	}
 }
 
+function loadSkillBar() {
+  var elements = document.getElementsByClassName("skillbar-bar");
+  var percentElements = document.getElementsByClassName("skill-bar-percent");
+  var percentage = [];
+  for (let element of percentElements) {
+    percentage.push(element.innerHTML);
+    }
+  for (let i = 0; i < elements.length; i++) {
+    console.log(percentage[i]);
+    console.log(elements[i]);
+    elements[i].style.width = percentage[i];
+  }
+}
+
+if (checkWhichPage('skills.html')) {
+  loadSkillBar();
+}
 onStartProjects();
